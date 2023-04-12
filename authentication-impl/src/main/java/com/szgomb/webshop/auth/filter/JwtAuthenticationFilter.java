@@ -10,7 +10,7 @@ import org.springframework.security.web.authentication.WebAuthenticationDetailsS
 import org.springframework.util.StringUtils;
 import org.springframework.web.filter.OncePerRequestFilter;
 
-import com.szgomb.webshop.auth.service.impl.JwtGeneratorImpl;
+import com.szgomb.webshop.auth.service.JwtGenerator;
 
 import jakarta.servlet.FilterChain;
 import jakarta.servlet.ServletException;
@@ -21,7 +21,7 @@ import lombok.RequiredArgsConstructor;
 @RequiredArgsConstructor
 public class JwtAuthenticationFilter extends OncePerRequestFilter {
 
-	private final JwtGeneratorImpl tokenGenerator;
+	private final JwtGenerator tokenGenerator;
 	private final UserDetailsService service;
 
 	@Override
@@ -29,7 +29,7 @@ public class JwtAuthenticationFilter extends OncePerRequestFilter {
 			throws ServletException, IOException {
 		String token = getJWTFromRequest(request);
 		if (StringUtils.hasText(token) && tokenGenerator.validateToken(token)) {
-			String username = tokenGenerator.getUsernameFromJWT(token);
+			String username = tokenGenerator.extractUsername(token);
 			UserDetails userDetails = service.loadUserByUsername(username);
 			UsernamePasswordAuthenticationToken authenticationToken = new UsernamePasswordAuthenticationToken(
 					userDetails, null, userDetails.getAuthorities());

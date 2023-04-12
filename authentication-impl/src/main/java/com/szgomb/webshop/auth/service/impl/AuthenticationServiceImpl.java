@@ -5,6 +5,7 @@ import org.springframework.security.authentication.UsernamePasswordAuthenticatio
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 
+import com.szgom.webshop.customer.service.CustomerService;
 import com.szgomb.webshop.auth.dto.AuthenticationResponse;
 import com.szgomb.webshop.auth.dto.LoginRequest;
 import com.szgomb.webshop.auth.dto.RegisterRequest;
@@ -22,12 +23,15 @@ public class AuthenticationServiceImpl implements AuthenticationService{
 	private final JwtGeneratorImpl generator;
 	
 	private final UserDetailsService userDetailService;
+
+	private final CustomerService service;
 	
 	@Override
 	public AuthenticationResponse register(RegisterRequest request) {
-		var user =  com.szgomb.webshop.auth.model.UserDetailsImpl.builder().username(request.getUsername()).password(request.getPassword()).build();
-		//TODO store user
-		String jwtToken = generator.generateToken(user);
+		// var user =  UserDetailsImpl.builder().username(request.getUsername()).password(request.getPassword()).build();
+		var user = service.getUserByUserName(request.getUsername());
+		var userDetails = UserDetailsImpl.buildFromUser(user);
+		String jwtToken = generator.generateToken(userDetails);
 		return AuthenticationResponse.builder().accessToken(jwtToken).build();
 	}
 

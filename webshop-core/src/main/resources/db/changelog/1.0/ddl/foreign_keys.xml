@@ -9,23 +9,23 @@
 	<!-- Create the Bucket table -->
 	<changeSet id="1.0-foreignkeys" author="szgombos">
 		<addForeignKeyConstraint baseColumnNames="product_id"
-                                 baseTableName="bucket_item"
+                                 baseTableName="BUCKET_ITEM"
                                  constraintName="fk_bucket_item_product"
                                  referencedColumnNames="id"
-                                 referencedTableName="product"/>
+                                 referencedTableName="PRODUCT"/>
         
         <!-- Add foreign key constraint to BucketItem referencing Bucket -->
         <addForeignKeyConstraint baseColumnNames="bucket_id"
-                                 baseTableName="bucket_item"
+                                 baseTableName="BUCKET_ITEM"
                                  constraintName="fk_bucket_item_bucket"
                                  referencedColumnNames="id"
-                                 referencedTableName="bucket"/>
+                                 referencedTableName="BUCKET"/>
         
         <!-- Add foreign key constraint to Bucket referencing User -->
         <addForeignKeyConstraint baseColumnNames="user_id"
-                                 baseTableName="bucket"
+                                 baseTableName="BUCKET"
                                  constraintName="fk_bucket_user"
                                  referencedColumnNames="id"
-                                 referencedTableName="user"/>
+                                 referencedTableName="USER"/>
 	</changeSet>
 </databaseChangeLog>

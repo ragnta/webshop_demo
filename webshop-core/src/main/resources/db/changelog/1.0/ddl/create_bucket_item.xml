@@ -8,7 +8,7 @@
 
 	<!-- Create the Bucket table -->
 	<changeSet id="1.0-create-bucketitem" author="szgombos">
-		<createTable tableName="BucketItem">
+		<createTable tableName="BUCKET_ITEM">
         <column name="id" type="bigint" autoIncrement="true">
             <constraints primaryKey="true" nullable="false"/>
         </column>

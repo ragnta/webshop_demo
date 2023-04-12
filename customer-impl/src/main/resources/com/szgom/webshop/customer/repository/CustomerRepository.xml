@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.szgom.webshop.customer.repository.CustomerRepository">
+
+  <resultMap type="com.szgom.webshop.customer.model.User" id='AllChildResult'>
+	    <id property='id' column='id'/>
+	    <result property='username' column='username'/>
+	    <result property='password' column='password'/>
+	    <result property='email' column='email'/>
+	</resultMap>
+
+  <select id="getUserByUsername" resultMap="AllChildResult">
+    select id, username, password, email from USER where username = #{name}
+  </select>
+</mapper>

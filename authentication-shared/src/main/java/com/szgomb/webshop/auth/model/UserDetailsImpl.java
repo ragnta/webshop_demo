@@ -5,6 +5,8 @@ import java.util.Collection;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 
+import com.szgom.webshop.customer.model.User;
+
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Getter;
@@ -52,6 +54,14 @@ public class UserDetailsImpl  implements UserDetails{
 	@Override
 	public boolean isEnabled() {
 		return true;
+	}
+
+	public static UserDetails buildFromUser(User user){
+		var userDetails = new UserDetailsImpl();
+		userDetails.setPassword(user.getPassword());
+		userDetails.setUserId(user.getUserId());
+		userDetails.setUsername(user.getUsername());
+		return userDetails;
 	}
 
 }

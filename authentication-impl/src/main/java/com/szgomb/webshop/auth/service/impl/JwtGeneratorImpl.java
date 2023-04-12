@@ -5,8 +5,7 @@ import java.util.Date;
 import java.util.function.Function;
 
 import org.springframework.beans.factory.annotation.Value;
-
-import com.szgomb.webshop.auth.model.UserDetailsImpl;
+import org.springframework.security.core.userdetails.UserDetails;
 import com.szgomb.webshop.auth.service.JwtGenerator;
 
 import io.jsonwebtoken.Claims;
@@ -17,10 +16,10 @@ import io.jsonwebtoken.security.Keys;
 
 public class JwtGeneratorImpl implements JwtGenerator {
 
-	@Value("${security.token.secret-key}")
+	@Value("${spring.security.token.secret-key}")
 	private String secretKey;
 	
-	@Value("${security.token.expiration}")
+	@Value("${spring.security.token.expiration}")
 	private long jwtExpiration;
 
 	/**
@@ -35,7 +34,7 @@ public class JwtGeneratorImpl implements JwtGenerator {
 		return extractClaim(token, Claims::getSubject);
 	}
 
-	public String generateToken(UserDetailsImpl user) {
+	public String generateToken(UserDetails user) {
 		String username = user.getUsername();
 		Date currentDate = new Date();
 		Date expireDate = new Date(currentDate.getTime() + jwtExpiration);

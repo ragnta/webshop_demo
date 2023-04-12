@@ -1,10 +1,11 @@
 spring:
   datasource:
-    url: 
-    username:
-    password:
-    
-security:
-  token:
-    secret-key: 367638792F423F4528482B4D6251655468576D5A7134743777217A2443264629
-    expiration: 900000000
+    url: jdbc:postgresql://localhost:5432/
+    username: postgres
+    password: mysecretpassword
+  liquibase: 
+    change-log: classpath:/db/changelog/1.0/changelog-1.0.xml
+  security:
+    token:
+      secret-key: 367638792F423F4528482B4D6251655468576D5A7134743777217A2443264629
+      expiration: 900000000

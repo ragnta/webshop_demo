@@ -34,5 +34,10 @@
 			<groupId>io.jsonwebtoken</groupId>
 			<artifactId>jjwt-jackson</artifactId>
 		</dependency>
+		<dependency>
+			<groupId>com.szgom.webshop</groupId>
+			<artifactId>customer-shared</artifactId>
+			<version>0.0.1-SNAPSHOT</version>
+		</dependency>
 	</dependencies>
 </project>

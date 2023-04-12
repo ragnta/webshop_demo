@@ -13,6 +13,7 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.web.SecurityFilterChain;
 import org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter;
 
+import com.szgom.webshop.customer.service.CustomerService;
 import com.szgomb.webshop.auth.filter.JwtAuthEntryPoint;
 import com.szgomb.webshop.auth.filter.JwtAuthenticationFilter;
 import com.szgomb.webshop.auth.service.AuthenticationService;
@@ -62,8 +63,8 @@ public class SecurityConfiguration {
 	}
 
 	@Bean
-	public AuthenticationService getAuthenticationServiceImpl(AuthenticationManager authManager, JwtGeneratorImpl generator, UserDetailsService userDetailService) {
-		return new AuthenticationServiceImpl(authManager, generator, userDetailService);
+	public AuthenticationService getAuthenticationServiceImpl(AuthenticationManager authManager, JwtGeneratorImpl generator, UserDetailsService userDetailService, CustomerService customerService) {
+		return new AuthenticationServiceImpl(authManager, generator, userDetailService, customerService);
 	}
 
 	@Bean
