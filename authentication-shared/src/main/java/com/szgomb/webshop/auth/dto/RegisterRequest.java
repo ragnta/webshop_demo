@@ -18,4 +18,8 @@ public class RegisterRequest {
 	@Getter
 	@Setter
 	private String password;
+	
+	@Getter
+	@Setter
+	private String email;
 }

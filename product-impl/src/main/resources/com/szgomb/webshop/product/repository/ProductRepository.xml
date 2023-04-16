@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper
+	namespace="com.szgomb.webshop.product.repository.ProductRepository">
+
+	<resultMap type="com.szgom.webshop.product.model.Product"
+		id='ProductMapping'>
+		<id property='id' column='id' />
+		<result property='name' column='name' />
+		<result property='description' column='description' />
+		<result property='price' column='price' />
+		<result property='imgUrl' column='imgurl' />
+		<result property='quantity' column='quantity' />
+	</resultMap>
+
+	<select id="getProductList" resultMap="ProductMapping">
+		select id, name, description, price, imgurl, quantity from PRODUCT order by id offset #{offset} ROWS fetch NEXT #{limit} ROWS ONLY
+	</select>
+
+</mapper>

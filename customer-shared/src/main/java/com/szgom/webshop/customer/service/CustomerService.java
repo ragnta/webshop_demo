@@ -6,7 +6,9 @@ public interface CustomerService {
 
 	User getUserByUserName(String userName);
 	
-	User getUserByUserUserId(String userId);
+	User getUserByUserUserId(Long userId);
+	
+	void storeUser(User user);
 	
 	
 }

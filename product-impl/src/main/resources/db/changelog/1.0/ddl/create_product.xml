@@ -21,6 +21,9 @@
 			<column name="price" type="decimal(10,2)">
 				<constraints nullable="false" />
 			</column>
+			<column name="imgurl" type="varchar(255)">
+				<constraints nullable="true" />
+			</column>
 			<column name="quantity" type="integer">
 				<constraints nullable="false" />
 			</column>

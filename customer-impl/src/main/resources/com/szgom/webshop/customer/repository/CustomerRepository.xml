@@ -3,16 +3,31 @@
   PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
   "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
-<mapper namespace="com.szgom.webshop.customer.repository.CustomerRepository">
+<mapper
+	namespace="com.szgom.webshop.customer.repository.CustomerRepository">
 
-  <resultMap type="com.szgom.webshop.customer.model.User" id='AllChildResult'>
-	    <id property='id' column='id'/>
-	    <result property='username' column='username'/>
-	    <result property='password' column='password'/>
-	    <result property='email' column='email'/>
+	<resultMap type="com.szgom.webshop.customer.model.User"
+		id='UserMapping'>
+		<id property='userId' column='id' />
+		<result property='username' column='username' />
+		<result property='password' column='password' />
+		<result property='email' column='email' />
 	</resultMap>
 
-  <select id="getUserByUsername" resultMap="AllChildResult">
-    select id, username, password, email from USER where username = #{name}
-  </select>
+	<select id="getUserByUsername" resultMap="UserMapping">
+		select id, username,
+		password, email from "USER" where username = #{name}
+	</select>
+
+	<select id="getUserByid" resultMap="UserMapping">
+		select id, username,
+		password, email from "USER" where id = #{id}
+	</select>
+
+	<insert id="storeUser">
+		INSERT INTO "USER" (username, "password", email)
+		values
+		(#{username}, #{password}, #{email})
+	</insert>
+
 </mapper>

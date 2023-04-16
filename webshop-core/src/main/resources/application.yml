@@ -4,7 +4,11 @@ spring:
     username: postgres
     password: mysecretpassword
   liquibase: 
-    change-log: classpath:/db/changelog/1.0/changelog-1.0.xml
+    change-log: classpath:/db/changelog/changelog.xml
+    enabled: false
+    url: jdbc:postgresql://localhost:5432/
+    username: postgres
+    password: mysecretpassword
   security:
     token:
       secret-key: 367638792F423F4528482B4D6251655468576D5A7134743777217A2443264629

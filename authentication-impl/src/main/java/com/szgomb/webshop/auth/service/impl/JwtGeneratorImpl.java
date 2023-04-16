@@ -5,7 +5,7 @@ import java.util.Date;
 import java.util.function.Function;
 
 import org.springframework.beans.factory.annotation.Value;
-import org.springframework.security.core.userdetails.UserDetails;
+
 import com.szgomb.webshop.auth.service.JwtGenerator;
 
 import io.jsonwebtoken.Claims;
@@ -34,8 +34,7 @@ public class JwtGeneratorImpl implements JwtGenerator {
 		return extractClaim(token, Claims::getSubject);
 	}
 
-	public String generateToken(UserDetails user) {
-		String username = user.getUsername();
+	public String generateToken(String username) {
 		Date currentDate = new Date();
 		Date expireDate = new Date(currentDate.getTime() + jwtExpiration);
 

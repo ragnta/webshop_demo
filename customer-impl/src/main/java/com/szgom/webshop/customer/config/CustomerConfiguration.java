@@ -1,8 +1,6 @@
 package com.szgom.webshop.customer.config;
 
-import org.apache.ibatis.session.SqlSession;
 import org.apache.ibatis.session.SqlSessionFactory;
-import org.mybatis.spring.SqlSessionTemplate;
 import org.mybatis.spring.mapper.MapperFactoryBean;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -11,13 +9,8 @@ import com.szgom.webshop.customer.repository.CustomerRepository;
 import com.szgom.webshop.customer.service.CustomerService;
 import com.szgom.webshop.customer.service.impl.CustomerServiceImpl;
 
-import lombok.RequiredArgsConstructor;
-
 @Configuration
-@RequiredArgsConstructor
 public class CustomerConfiguration{
-
-    // private final SqlSessionFactory sqlSessionfactory;
 
     @Bean
     public MapperFactoryBean<CustomerRepository> customerRepository(SqlSessionFactory sqlSessionFactory) throws Exception {

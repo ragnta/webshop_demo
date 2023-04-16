@@ -1,0 +1,514 @@
+<databaseChangeLog
+	xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+        http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-latest.xsd
+        http://www.liquibase.org/xml/ns/dbchangelog-ext http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-ext.xsd
+        http://www.liquibase.org/xml/ns/pro http://www.liquibase.org/xml/ns/pro/liquibase-pro-latest.xsd">
+
+
+	<changeSet id="insert_products" author="szgombos">
+		<insert tableName="PRODUCT">
+			<column name="name" value="Apple iPhone 13 Pro Max" />
+			<column name="description"
+				value="The latest and greatest iPhone from Apple." />
+			<column name="price" value="1299.99" />
+			<column name="imgurl"
+				value="https://picsum.photos/id/1000/300/200" />
+			<column name="quantity" value="10" />
+		</insert>
+
+		<insert tableName="PRODUCT">
+			<column name="name" value="Samsung Galaxy S21 Ultra" />
+			<column name="description"
+				value="A powerful Android phone from Samsung." />
+			<column name="price" value="1199.99" />
+			<column name="imgurl"
+				value="https://picsum.photos/id/1015/300/200" />
+			<column name="quantity" value="7" />
+		</insert>
+
+		<insert tableName="PRODUCT">
+			<column name="name" value="Sony Playstation 5" />
+			<column name="description"
+				value="The latest and greatest gaming console from Sony." />
+			<column name="price" value="499.99" />
+			<column name="imgurl"
+				value="https://picsum.photos/id/102/300/200" />
+			<column name="quantity" value="5" />
+		</insert>
+
+		<insert tableName="PRODUCT">
+			<column name="name" value="Microsoft Xbox Series X" />
+			<column name="description"
+				value="The latest and greatest gaming console from Microsoft." />
+			<column name="price" value="499.99" />
+			<column name="imgurl"
+				value="https://picsum.photos/id/104/300/200" />
+			<column name="quantity" value="3" />
+		</insert>
+
+		<insert tableName="PRODUCT">
+			<column name="name" value="Dell XPS 13" />
+			<column name="description"
+				value="A powerful and lightweight laptop from Dell." />
+			<column name="price" value="1099.99" />
+			<column name="imgurl"
+				value="https://picsum.photos/id/105/300/200" />
+			<column name="quantity" value="2" />
+		</insert>
+
+		<insert tableName="PRODUCT">
+			<column name="name" value="Lenovo ThinkPad X1 Carbon" />
+			<column name="description"
+				value="A business-class laptop from Lenovo." />
+			<column name="price" value="1499.99" />
+			<column name="imgurl"
+				value="https://picsum.photos/id/1060/300/200" />
+			<column name="quantity" value="5" />
+		</insert>
+
+		<insert tableName="PRODUCT">
+			<column name="name" value="Apple MacBook Pro 16&quot;" />
+			<column name="description"
+				value="A powerful and premium laptop from Apple." />
+			<column name="price" value="2399.99" />
+			<column name="imgurl"
+				value="https://picsum.photos/id/1065/300/200" />
+			<column name="quantity" value="3" />
+		</insert>
+
+		<insert tableName="PRODUCT">
+			<column name="name" value="Bose QuietComfort 35 II" />
+			<column name="description"
+				value="A premium noise-cancelling headphone from Bose." />
+			<column name="price" value="299.99" />
+			<column name="imgurl"
+				value="https://picsum.photos/id/107/300/200" />
+			<column name="quantity" value="8" />
+		</insert>
+
+		<insert tableName="PRODUCT">
+			<column name="name" value="Sony WH-1000XM4" />
+			<column name="description"
+				value="A premium noise-cancelling headphone from Sony." />
+			<column name="price" value="349.99" />
+			<column name="imgurl"
+				value="https://picsum.photos/id/108/300/200" />
+			<column name="quantity" value="6" />
+		</insert>
+
+		<insert tableName="PRODUCT">
+			<column name="name" value="Samsung Galaxy Watch 4" />
+			<column name="description"
+				value="A smartwatch with lots of features from Samsung." />
+			<column name="price" value="299.99" />
+			<column name="imgurl"
+				value="https://picsum.photos/id/109/300/200" />
+			<column name="quantity" value="10" />
+		</insert>
+
+		<insert tableName="PRODUCT">
+			<column name="name" value="Apple Watch Series 7" />
+			<column name="description"
+				value="A smartwatch with lots of features from Apple." />
+			<column name="price" value="399.99" />
+			<column name="imgurl"
+				value="https://picsum.photos/id/110/300/200" />
+			<column name="quantity" value="12" />
+		</insert>
+
+		<insert tableName="PRODUCT">
+			<column name="name" value="Fitbit Charge 5" />
+			<column name="description"
+				value="A fitness tracker with lots of features from Fitbit." />
+			<column name="price" value="179.99" />
+			<column name="imgurl"
+				value="https://picsum.photos/id/111/300/200" />
+			<column name="quantity" value="20" />
+		</insert>
+
+		<insert tableName="PRODUCT">
+			<column name="name" value="Garmin Venu 2" />
+			<column name="description"
+				value="A fitness tracker with lots of features from Garmin." />
+			<column name="price" value="349.99" />
+			<column name="imgurl"
+				value="https://picsum.photos/id/112/300/200" />
+			<column name="quantity" value="15" />
+		</insert>
+
+		<insert tableName="PRODUCT">
+			<column name="name" value="GoPro Hero 10" />
+			<column name="description"
+				value="A premium action camera from GoPro." />
+			<column name="price" value="399.99" />
+			<column name="imgurl"
+				value="https://picsum.photos/id/113/300/200" />
+			<column name="quantity" value="6" />
+		</insert>
+
+		<insert tableName="PRODUCT">
+			<column name="name" value="Canon EOS R5" />
+			<column name="description"
+				value="A premium mirrorless camera from Canon." />
+			<column name="price" value="3999.99" />
+			<column name="imgurl"
+				value="https://picsum.photos/id/114/300/200" />
+			<column name="quantity" value="2" />
+		</insert>
+
+		<insert tableName="PRODUCT">
+			<column name="name" value="Sony Alpha a7 IV" />
+			<column name="description"
+				value="A premium mirrorless camera from Sony." />
+			<column name="price" value="2999.99" />
+			<column name="imgurl"
+				value="https://picsum.photos/id/115/300/200" />
+			<column name="quantity" value="4" />
+		</insert>
+
+		<insert tableName="PRODUCT">
+			<column name="name" value="Nikon Z9" />
+			<column name="description"
+				value="A premium mirrorless camera from Nikon." />
+			<column name="price" value="5999.99" />
+			<column name="imgurl"
+				value="https://picsum.photos/id/116/300/200" />
+			<column name="quantity" value="1" />
+		</insert>
+
+		<insert tableName="PRODUCT">
+			<column name="name" value="Logitech MX Master 3" />
+			<column name="description"
+				value="A premium wireless mouse from Logitech." />
+			<column name="price" value="99.99" />
+			<column name="imgurl"
+				value="https://picsum.photos/id/117/300/200" />
+			<column name="quantity" value="9" />
+		</insert>
+
+		<insert tableName="PRODUCT">
+			<column name="name" value="Apple Magic Keyboard" />
+			<column name="description"
+				value="A premium wireless keyboard from Apple." />
+			<column name="price" value="129.99" />
+			<column name="imgurl"
+				value="https://picsum.photos/id/118/300/200" />
+			<column name="quantity" value="11" />
+		</insert>
+
+		<insert tableName="PRODUCT">
+			<column name="name" value="Dyson V15 Detect" />
+			<column name="description"
+				value="A premium cordless vacuum cleaner from Dyson." />
+			<column name="price" value="699.99" />
+			<column name="imgurl"
+				value="https://picsum.photos/id/119/300/200" />
+			<column name="quantity" value="3" />
+		</insert>
+
+		<insert tableName="PRODUCT">
+			<column name="name" value="Apple MacBook Pro 16" />
+			<column name="description"
+				value="A powerful and premium laptop from Apple." />
+			<column name="price" value="2399.99" />
+			<column name="imgurl"
+				value="https://picsum.photos/id/1065/300/200" />
+			<column name="quantity" value="3" />
+		</insert>
+
+		<insert tableName="PRODUCT">
+			<column name="name" value="Samsung Galaxy S21" />
+			<column name="description"
+				value="A flagship smartphone from Samsung." />
+			<column name="price" value="999.99" />
+			<column name="imgurl"
+				value="https://picsum.photos/id/1050/300/200" />
+			<column name="quantity" value="5" />
+		</insert>
+
+		<insert tableName="PRODUCT">
+			<column name="name" value="Sony PlayStation 5" />
+			<column name="description"
+				value="The latest gaming console from Sony." />
+			<column name="price" value="499.99" />
+			<column name="imgurl"
+				value="https://picsum.photos/id/1045/300/200" />
+			<column name="quantity" value="2" />
+		</insert>
+
+		<insert tableName="PRODUCT">
+			<column name="name" value="LG OLED TV" />
+			<column name="description"
+				value="A high-end television with stunning picture quality." />
+			<column name="price" value="1999.99" />
+			<column name="imgurl"
+				value="https://picsum.photos/id/1035/300/200" />
+			<column name="quantity" value="1" />
+		</insert>
+
+		<insert tableName="PRODUCT">
+			<column name="name" value="Microsoft Surface Laptop 4" />
+			<column name="description"
+				value="A sleek and powerful laptop from Microsoft." />
+			<column name="price" value="1399.99" />
+			<column name="imgurl"
+				value="https://picsum.photos/id/1025/300/200" />
+			<column name="quantity" value="4" />
+		</insert>
+
+		<insert tableName="PRODUCT">
+			<column name="name" value="Bose QuietComfort 35 II" />
+			<column name="description"
+				value="Premium noise-cancelling headphones from Bose." />
+			<column name="price" value="349.99" />
+			<column name="imgurl"
+				value="https://picsum.photos/id/1015/300/200" />
+			<column name="quantity" value="7" />
+		</insert>
+
+		<insert tableName="PRODUCT">
+			<column name="name" value="Canon EOS R6" />
+			<column name="description"
+				value="A high-end mirrorless camera from Canon." />
+			<column name="price" value="2499.99" />
+			<column name="imgurl"
+				value="https://picsum.photos/id/1005/300/200" />
+			<column name="quantity" value="3" />
+		</insert>
+
+		<insert tableName="PRODUCT">
+			<column name="name" value="Dyson V11" />
+			<column name="description"
+				value="A powerful cordless vacuum cleaner from Dyson." />
+			<column name="price" value="599.99" />
+			<column name="imgurl"
+				value="https://picsum.photos/id/995/300/200" />
+			<column name="quantity" value="2" />
+		</insert>
+
+		<insert tableName="PRODUCT">
+			<column name="name" value="Fitbit Versa 3" />
+			<column name="description"
+				value="A smartwatch with fitness tracking features from Fitbit." />
+			<column name="price" value="229.99" />
+			<column name="imgurl"
+				value="https://picsum.photos/id/985/300/200" />
+			<column name="quantity" value="8" />
+		</insert>
+
+		<insert tableName="PRODUCT">
+			<column name="name" value="Nintendo Switch" />
+			<column name="description"
+				value="A popular hybrid gaming console from Nintendo." />
+			<column name="price" value="299.99" />
+			<column name="imgurl"
+				value="https://picsum.photos/id/975/300/200" />
+			<column name="quantity" value="6" />
+		</insert>
+
+		<insert tableName="PRODUCT">
+			<column name="name" value="GoPro HERO9 Black" />
+			<column name="description"
+				value="A high-end action camera from GoPro." />
+			<column name="price" value="449.99" />
+			<column name="imgurl"
+				value="https://picsum.photos/id/965/300/200" />
+			<column name="quantity" value="1" />
+		</insert>
+
+		<insert tableName="PRODUCT">
+			<column name="name" value="Breville Barista Touch" />
+			<column name="description"
+				value="An advanced espresso machine from Breville." />
+			<column name="price" value="999.99" />
+			<column name="imgurl"
+				value="https://picsum.photos/id/955/300/200" />
+			<column name="quantity" value="2" />
+		</insert>
+
+		<insert tableName="PRODUCT">
+			<column name="name" value="Huawei MateBook X Pro" />
+			<column name="description"
+				value="A premium laptop from Huawei with a stunning display." />
+			<column name="price" value="1499.99" />
+			<column name="imgurl"
+				value="https://picsum.photos/id/945/300/200" />
+			<column name="quantity" value="5" />
+		</insert>
+
+		<insert tableName="PRODUCT">
+			<column name="name" value="Sonos Beam" />
+			<column name="description"
+				value="A compact soundbar with Alexa voice control from Sonos." />
+			<column name="price" value="399.99" />
+			<column name="imgurl"
+				value="https://picsum.photos/id/935/300/200" />
+			<column name="quantity" value="3" />
+		</insert>
+
+		<insert tableName="PRODUCT">
+			<column name="name" value="Anker PowerCore+ 26800mAh PD" />
+			<column name="description"
+				value="A high-capacity portable charger from Anker." />
+			<column name="price" value="129.99" />
+			<column name="imgurl"
+				value="https://picsum.photos/id/925/300/200" />
+			<column name="quantity" value="10" />
+		</insert>
+
+		<insert tableName="PRODUCT">
+			<column name="name" value="Samsung Galaxy S21" />
+			<column name="description"
+				value="Powerful smartphone from Samsung" />
+			<column name="price" value="849.99" />
+			<column name="imgurl"
+				value="https://picsum.photos/id/1071/300/200" />
+			<column name="quantity" value="10" />
+		</insert>
+
+		<insert tableName="PRODUCT">
+			<column name="name" value="Bose QuietComfort 35 II" />
+			<column name="description"
+				value="Wireless noise-cancelling headphones" />
+			<column name="price" value="299.99" />
+			<column name="imgurl"
+				value="https://picsum.photos/id/1084/300/200" />
+			<column name="quantity" value="5" />
+		</insert>
+
+		<insert tableName="PRODUCT">
+			<column name="name" value="Canon EOS R6" />
+			<column name="description"
+				value="Mirrorless camera with full-frame sensor" />
+			<column name="price" value="2399.99" />
+			<column name="imgurl"
+				value="https://picsum.photos/id/1060/300/200" />
+			<column name="quantity" value="2" />
+		</insert>
+
+		<insert tableName="PRODUCT">
+			<column name="name" value="Nike Air Zoom Pegasus 38" />
+			<column name="description"
+				value="Running shoes with responsive foam" />
+			<column name="price" value="119.99" />
+			<column name="imgurl"
+				value="https://picsum.photos/id/1035/300/200" />
+			<column name="quantity" value="8" />
+		</insert>
+
+		<insert tableName="PRODUCT">
+			<column name="name" value="Apple iPad Air (2020)" />
+			<column name="description"
+				value="Powerful and portable tablet from Apple" />
+			<column name="price" value="599.99" />
+			<column name="imgurl"
+				value="https://picsum.photos/id/1022/300/200" />
+			<column name="quantity" value="3" />
+		</insert>
+
+		<insert tableName="PRODUCT">
+			<column name="name" value="Dell XPS 13" />
+			<column name="description"
+				value="High-end laptop with stunning display" />
+			<column name="price" value="1499.99" />
+			<column name="imgurl"
+				value="https://picsum.photos/id/1020/300/200" />
+			<column name="quantity" value="1" />
+		</insert>
+
+		<insert tableName="PRODUCT">
+			<column name="name" value="LG OLED CX Series" />
+			<column name="description"
+				value="55-inch 4K OLED TV with stunning picture quality" />
+			<column name="price" value="1499.99" />
+			<column name="imgurl"
+				value="https://picsum.photos/id/1047/300/200" />
+			<column name="quantity" value="2" />
+		</insert>
+
+		<insert tableName="PRODUCT">
+			<column name="name" value="Google Nest Hub (2nd gen)" />
+			<column name="description"
+				value="Smart display with Google Assistant" />
+			<column name="price" value="99.99" />
+			<column name="imgurl"
+				value="https://picsum.photos/id/1019/300/200" />
+			<column name="quantity" value="4" />
+		</insert>
+
+		<insert tableName="PRODUCT">
+			<column name="name" value="Sony WH-1000XM4" />
+			<column name="description"
+				value="Wireless noise-cancelling headphones" />
+			<column name="price" value="349.99" />
+			<column name="imgurl"
+				value="https://picsum.photos/id/1062/300/200" />
+			<column name="quantity" value="7" />
+		</insert>
+
+		<insert tableName="PRODUCT">
+			<column name="name" value="Garmin Fenix 6" />
+			<column name="description"
+				value="Advanced GPS smartwatch for outdoor adventures" />
+			<column name="price" value="799.99" />
+			<column name="imgurl"
+				value="https://picsum.photos/id/1025/300/200" />
+			<column name="quantity" value="2" />
+		</insert>
+
+		<insert tableName="PRODUCT">
+			<column name="name" value="Microsoft Surface Pro 7" />
+			<column name="description"
+				value="Powerful and versatile tablet from Microsoft" />
+			<column name="price" value="899.99" />
+			<column name="imgurl"
+				value="https://picsum.photos/id/1073/300/200" />
+			<column name="quantity" value="4" />
+		</insert>
+
+		<insert tableName="PRODUCT">
+			<column name="name" value="JBL Flip 5" />
+			<column name="description"
+				value="Portable waterproof Bluetooth speaker" />
+			<column name="price" value="119.99" />
+			<column name="imgurl"
+				value="https://picsum.photos/id/1032/300/200" />
+			<column name="quantity" value="6" />
+		</insert>
+
+		<insert tableName="PRODUCT">
+			<column name="name" value="Samsung Q90T" />
+			<column name="description"
+				value="QLED TV with stunning picture quality" />
+			<column name="price" value="1999.99" />
+			<column name="imgurl"
+				value="https://picsum.photos/id/1081/300/200" />
+			<column name="quantity" value="3" />
+		</insert>
+
+		<insert tableName="PRODUCT">
+			<column name="name" value="Fitbit Charge 4" />
+			<column name="description"
+				value="Advanced fitness tracker with GPS" />
+			<column name="price" value="149.99" />
+			<column name="imgurl"
+				value="https://picsum.photos/id/1068/300/200" />
+			<column name="quantity" value="9" />
+		</insert>
+
+		<insert tableName="PRODUCT">
+			<column name="name" value="Anker PowerCore 10000" />
+			<column name="description"
+				value="Compact and portable power bank" />
+			<column name="price" value="29.99" />
+			<column name="imgurl"
+				value="https://picsum.photos/id/1011/300/200" />
+			<column name="quantity" value="12" />
+		</insert>
+
+
+	</changeSet>
+
+</databaseChangeLog>

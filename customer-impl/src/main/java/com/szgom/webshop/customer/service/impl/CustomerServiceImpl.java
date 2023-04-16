@@ -17,9 +17,13 @@ public class CustomerServiceImpl implements CustomerService{
     }
 
     @Override
-    public User getUserByUserUserId(String userId) {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'getUserByUserUserId'");
+    public User getUserByUserUserId(Long userId) {
+        return repository.getUserByid(userId);
     }
+
+	@Override
+	public void storeUser(User user) {
+		repository.storeUser(user.getUsername(), user.getPassword(), user.getEmail());
+	}
 
 }

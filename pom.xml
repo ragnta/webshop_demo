@@ -20,6 +20,7 @@
 		<io.jsonwebtoken-impl.version>0.11.5</io.jsonwebtoken-impl.version>
 		<io.jsonwebtoken-jackson.version>0.11.5</io.jsonwebtoken-jackson.version>
 		<mybatis.version>3.0.0</mybatis.version>
+		<postgresql.version>42.6.0</postgresql.version>
 	</properties>
 
 	<dependencies>
@@ -52,6 +53,11 @@
 				<artifactId>jjwt-jackson</artifactId>
 				<version>${io.jsonwebtoken-jackson.version}</version>
 			</dependency>
+			<dependency>
+				<groupId>org.postgresql</groupId>
+				<artifactId>postgresql</artifactId>
+				<version>${postgresql.version}</version>
+			</dependency>
 		</dependencies>
 	</dependencyManagement>
 
@@ -62,6 +68,11 @@
 		<module>customer-impl</module>
 		<module>authentication-controller</module>
 		<module>authentication-shared</module>
+		<module>product-controller</module>
+		<module>product-shared</module>
+		<module>product-impl</module>
+		<module>bucket-shared</module>
+		<module>bucket-impl</module>
 	</modules>
 
 </project>

@@ -27,6 +27,8 @@ import lombok.RequiredArgsConstructor;
 @EnableWebSecurity
 @RequiredArgsConstructor
 public class SecurityConfiguration {
+
+	private final CustomerService customerService;
 	
 	@Bean
 	public SecurityFilterChain getSecurityFilterChain(HttpSecurity http) throws Exception {
@@ -41,19 +43,21 @@ public class SecurityConfiguration {
 				.anyRequest().authenticated() //
 				.and()//
 				.httpBasic();
-		http.addFilterBefore(getJwtAuthenticationFilter(getUserDetailsService(getBCryptPasswordEncoder()), getJwtGenerator()),
+		http.addFilterBefore(
+				getJwtAuthenticationFilter(getUserDetailsService(), getJwtGenerator()),
 				UsernamePasswordAuthenticationFilter.class);
 		return http.build();
 	}
 
 	@Bean
-    public AuthenticationManager authenticationManager(
-            AuthenticationConfiguration authenticationConfiguration) throws Exception {
-        return authenticationConfiguration.getAuthenticationManager();
-    }
-	
+	public AuthenticationManager authenticationManager(AuthenticationConfiguration authenticationConfiguration)
+			throws Exception {
+		return authenticationConfiguration.getAuthenticationManager();
+	}
+
 	@Bean
-	public JwtAuthenticationFilter getJwtAuthenticationFilter(UserDetailsService service, JwtGeneratorImpl tokenGenerator) {
+	public JwtAuthenticationFilter getJwtAuthenticationFilter(UserDetailsService service,
+			JwtGeneratorImpl tokenGenerator) {
 		return new JwtAuthenticationFilter(tokenGenerator, service);
 	}
 
@@ -63,8 +67,11 @@ public class SecurityConfiguration {
 	}
 
 	@Bean
-	public AuthenticationService getAuthenticationServiceImpl(AuthenticationManager authManager, JwtGeneratorImpl generator, UserDetailsService userDetailService, CustomerService customerService) {
-		return new AuthenticationServiceImpl(authManager, generator, userDetailService, customerService);
+	public AuthenticationService getAuthenticationServiceImpl(AuthenticationManager authManager,
+			JwtGeneratorImpl generator, UserDetailsService userDetailService,
+			PasswordEncoder passwordencoder) {
+		return new AuthenticationServiceImpl(authManager, generator, userDetailService, customerService,
+				passwordencoder);
 	}
 
 	@Bean
@@ -76,9 +83,9 @@ public class SecurityConfiguration {
 	public JwtAuthEntryPoint getJwtAuthEntryPoint() {
 		return new JwtAuthEntryPoint();
 	}
-	
+
 	@Bean
-	public UserDetailsService getUserDetailsService(PasswordEncoder passwordEncoder) {
-		return new UserDetailsServiceImpl(passwordEncoder);
+	public UserDetailsService getUserDetailsService() {
+		return new UserDetailsServiceImpl(customerService);
 	}
 }

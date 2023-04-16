@@ -1,8 +1,5 @@
 package com.szgomb.webshop.auth.service;
 
-import org.springframework.security.core.userdetails.UserDetails;
-
-
 public interface JwtGenerator {
 
 	/**
@@ -24,10 +21,10 @@ public interface JwtGenerator {
 
 	/**
 	 * 
-	 * Generate the token based on the token
+	 * Generate the token based on the username
 	 * 
-	 * @param user
+	 * @param username
 	 * @return
 	 */
-	String generateToken(UserDetails user);
+	String generateToken(String userName);
 }

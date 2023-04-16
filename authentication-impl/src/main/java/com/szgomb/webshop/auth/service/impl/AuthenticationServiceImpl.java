@@ -4,12 +4,13 @@ import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
+import org.springframework.security.crypto.password.PasswordEncoder;
 
+import com.szgom.webshop.customer.model.User;
 import com.szgom.webshop.customer.service.CustomerService;
 import com.szgomb.webshop.auth.dto.AuthenticationResponse;
 import com.szgomb.webshop.auth.dto.LoginRequest;
 import com.szgomb.webshop.auth.dto.RegisterRequest;
-import com.szgomb.webshop.auth.model.UserDetailsImpl;
 import com.szgomb.webshop.auth.service.AuthenticationService;
 
 import lombok.RequiredArgsConstructor;
@@ -26,12 +27,14 @@ public class AuthenticationServiceImpl implements AuthenticationService{
 
 	private final CustomerService service;
 	
+	private final PasswordEncoder passwordEncoder;
+	
 	@Override
 	public AuthenticationResponse register(RegisterRequest request) {
 		// var user =  UserDetailsImpl.builder().username(request.getUsername()).password(request.getPassword()).build();
-		var user = service.getUserByUserName(request.getUsername());
-		var userDetails = UserDetailsImpl.buildFromUser(user);
-		String jwtToken = generator.generateToken(userDetails);
+		User user = User.builder().username(request.getUsername()).password(passwordEncoder.encode(request.getPassword())).email(request.getEmail()).build();
+		service.storeUser(user);
+		String jwtToken = generator.generateToken(user.getUsername());
 		return AuthenticationResponse.builder().accessToken(jwtToken).build();
 	}
 
@@ -43,10 +46,8 @@ public class AuthenticationServiceImpl implements AuthenticationService{
 			            request.getPassword()
 			        )
 			    );
-		
-		// TODO getUser from repository
-		var user =  UserDetailsImpl.builder().username(request.getUsername()).password(request.getPassword()).build();
-		String jwtToken = generator.generateToken(user);
+		var user = service.getUserByUserName(request.getUsername());
+		String jwtToken = generator.generateToken(user.getUsername());
 		return AuthenticationResponse.builder().accessToken(jwtToken).build();
 	}
 

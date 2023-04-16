@@ -6,22 +6,20 @@
         http://www.liquibase.org/xml/ns/dbchangelog-ext http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-ext.xsd
         http://www.liquibase.org/xml/ns/pro http://www.liquibase.org/xml/ns/pro/liquibase-pro-latest.xsd">
 
-	<!-- Create the Bucket table -->
-	<changeSet id="1.0-foreignkeys" author="szgombos">
+
+	<changeSet id="1.0-foreignkeys" author="szgombos" runOnChange="true">
 		<addForeignKeyConstraint baseColumnNames="product_id"
                                  baseTableName="BUCKET_ITEM"
                                  constraintName="fk_bucket_item_product"
                                  referencedColumnNames="id"
                                  referencedTableName="PRODUCT"/>
         
-        <!-- Add foreign key constraint to BucketItem referencing Bucket -->
         <addForeignKeyConstraint baseColumnNames="bucket_id"
                                  baseTableName="BUCKET_ITEM"
                                  constraintName="fk_bucket_item_bucket"
                                  referencedColumnNames="id"
                                  referencedTableName="BUCKET"/>
         
-        <!-- Add foreign key constraint to Bucket referencing User -->
         <addForeignKeyConstraint baseColumnNames="user_id"
                                  baseTableName="BUCKET"
                                  constraintName="fk_bucket_user"

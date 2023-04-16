@@ -11,10 +11,11 @@
   <include file="ddl/create_bucket.xml" relativeToChangelogFile="true"/>
   <include file="ddl/create_product.xml" relativeToChangelogFile="true"/>
   <include file="ddl/create_user.xml" relativeToChangelogFile="true"/>
-  <include file="ddl/foreign_keys.xml" relativeToChangelogFile="true"/>
+  <include file="ddl/create_bucket_foreign_keys.xml" relativeToChangelogFile="true"/>
   
   
   <!-- DML -->
-  <!-- <include file="dml/insert-oppurtunities.xml" relativeToChangelogFile="true"/> -->
+  <include file="dml/insert_user.xml" relativeToChangelogFile="true"/>
+  <include file="dml/insert_product.xml" relativeToChangelogFile="true"/>
 
 </databaseChangeLog>

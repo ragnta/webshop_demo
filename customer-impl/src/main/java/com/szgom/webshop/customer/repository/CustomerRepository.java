@@ -9,4 +9,8 @@ import com.szgom.webshop.customer.model.User;
 public interface CustomerRepository {
 
     User getUserByUsername(@Param("name") String userName);
+    
+    User getUserByid(@Param("id") Long userId);
+    
+    void storeUser(@Param("username") String userName, @Param("password") String password, @Param("email") String email);
 }

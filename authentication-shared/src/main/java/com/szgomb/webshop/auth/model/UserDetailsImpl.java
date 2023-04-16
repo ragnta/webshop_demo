@@ -1,8 +1,10 @@
 package com.szgomb.webshop.auth.model;
 
 import java.util.Collection;
+import java.util.List;
 
 import org.springframework.security.core.GrantedAuthority;
+import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 
 import com.szgom.webshop.customer.model.User;
@@ -33,7 +35,7 @@ public class UserDetailsImpl  implements UserDetails{
 
 	@Override
 	public Collection<? extends GrantedAuthority> getAuthorities() {
-		return null;
+		return List.of(new SimpleGrantedAuthority("USER"));
 	}
 
 	@Override
@@ -43,7 +45,7 @@ public class UserDetailsImpl  implements UserDetails{
 
 	@Override
 	public boolean isAccountNonLocked() {
-		return false;
+		return true;
 	}
 
 	@Override
