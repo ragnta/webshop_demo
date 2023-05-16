@@ -4,7 +4,7 @@ import com.szgom.webshop.bucket.model.Bucket;
 
 public interface BucketHandler {
 	
-	Bucket onConfirm();
+	Bucket onForward(Bucket bucket);
 	
-	Bucket onDecline();
+	Bucket onBack(Bucket bucket);
 }
